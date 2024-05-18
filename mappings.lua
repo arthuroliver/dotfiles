@@ -2,6 +2,7 @@
 
 local M = {}
 
+-- Function to smartly resize windows horizontally
 M.general = {
   i = {
     -- go to  beginning and end
@@ -18,10 +19,16 @@ M.general = {
   n = {
     ["<Esc>"] = { "<cmd> noh <CR>", "Clear highlights" },
     -- switch between windows
-    ["<C-h>"] = { "<C-w>h", "Window left" },
-    ["<C-l>"] = { "<C-w>l", "Window right" },
-    ["<C-j>"] = { "<C-w>j", "Window down" },
-    ["<C-k>"] = { "<C-w>k", "Window up" },
+    ["<C-w>h"] = { "<C-w>h", "Window left" },
+    ["<C-w>l"] = { "<C-w>l", "Window right" },
+    ["<C-w>j"] = { "<C-w>j", "Window down" },
+    ["<C-w>k"] = { "<C-w>k", "Window up" },
+
+    -- Resize mappings added here
+    ["<C-l>"] = { "<cmd>vertical resize +2<CR>", "Resize window wider" },
+    ["<C-h>"] = { "<cmd>vertical resize -2<CR>", "Resize window narrower" },
+    ["<C-k>"] = { "<cmd>resize +2<CR>", "Increase window height" },
+    ["<C-j>"] = { "<cmd>resize -2<CR>", "Decrease window height" },
 
     -- save
     ["<C-s>"] = { "<cmd> w <CR>", "Save file" },
