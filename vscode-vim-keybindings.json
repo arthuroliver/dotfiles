@@ -1,0 +1,313 @@
+[
+  // Navigation: Move between editor groups or navigate within the editor
+  {
+    "key": "ctrl-h",
+    "command": "workbench.action.navigateLeft" // Move focus to the editor group on the left
+  },
+  {
+    "key": "ctrl-l",
+    "command": "workbench.action.navigateRight" // Move focus to the editor group on the right
+  },
+  {
+    "key": "ctrl-k",
+    "command": "workbench.action.navigateUp" // Move focus to the editor group above
+  },
+  {
+    "key": "ctrl-j",
+    "command": "workbench.action.navigateDown" // Move focus to the editor group below
+  },
+  {
+    "key": "space ,",
+    "command": "workbench.action.showAllEditors", // Show all open editors
+    "when": "vim.mode == 'Normal' && (editorTextFocus || !inputFocus)"
+  },
+  {
+    "key": "space f f",
+    "command": "workbench.action.quickOpen", // Open the quick file search
+    "when": "vim.mode == 'Normal' && (editorTextFocus || !inputFocus)"
+  },
+  {
+    "key": "space f w",
+    "command": "workbench.action.findInFiles", // Open the search across files
+    "when": "vim.mode == 'Normal' && (editorTextFocus || !inputFocus)"
+  },
+  {
+    "key": "ctrl+q",
+    "command": "runCommands", // Close the sidebar and quick open
+    "args": {
+      "commands": [
+        "workbench.action.closeSidebar",
+        "workbench.action.closeQuickOpen"
+      ]
+    }
+  },
+  {
+    "key": "ctrl+j",
+    "command": "list.focusDown", // Move focus down in a list (e.g., file explorer)
+  },
+  {
+    "key": "ctrl+k",
+    "command": "list.focusUp" // Move focus up in a list (e.g., file explorer)
+  },
+  {
+    "key": "ctrl+j",
+    "command": "workbench.action.quickOpenSelectNext", // Select the next item in quick open
+    "when": "inQuickOpen"
+  },
+  {
+    "key": "ctrl+k",
+    "command": "workbench.action.quickOpenSelectPrevious", // Select the previous item in quick open
+    "when": "inQuickOpen"
+  },
+  {
+    "key": "tab",
+    "command": "workbench.action.nextEditorInGroup" // Switch to the next editor in the current group
+  },
+  {
+    "key": "shift+tab",
+    "command": "workbench.action.previousEditorInGroup" // Switch to the previous editor in the current group
+  },
+  {
+    "key": "space x",
+    "command": "workbench.action.closeActiveEditor", // Close the currently active editor
+    "when": "editorTextFocus"
+  },
+  {
+    "key": "ctrl+a",
+    "command": "editor.action.selectAll" // Select all text in the editor
+  },
+  {
+    "key": "space e",
+    "command": "runCommands", // Toggle the sidebar and focus the file explorer
+    "args": {
+      "commands": [
+        "workbench.action.toggleSidebarVisibility",
+        "workbench.files.action.focusFilesExplorer"
+      ]
+    },
+    "when": "vim.mode == 'Normal' && (editorTextFocus || !inputFocus) && !sideBarFocus"
+  },
+  {
+    "key": "ctrl+w l",
+    "command": "workbench.action.focusActiveEditorGroup", // Focus the active editor group
+    "when": "sideBarFocus"
+  },
+  {
+    "key": "space e",
+    "command": "runCommands", // Toggle the sidebar and focus the active editor group
+    "args": {
+      "commands": [
+        "workbench.action.toggleSidebarVisibility",
+        "workbench.action.focusActiveEditorGroup"
+      ]
+    },
+    "when": "sideBarFocus && !inputFocus"
+  },
+  {
+    "key": "space e",
+    "when": "vim.mode == 'Normal' && editorTextFocus && foldersViewVisible",
+    "command": "workbench.action.toggleSidebarVisibility" // Toggle the visibility of the sidebar
+  },
+  {
+    "key": "shift+h",
+    "command": "workbench.action.decreaseViewWidth" // Decrease the width of the current view
+  },
+  {
+    "key": "shift+l",
+    "command": "workbench.action.increaseViewWidth" // Increase the width of the current view
+  },
+  {
+    "key": "shift+j",
+    "command": "workbench.action.increaseViewHeight" // Increase the height of the current view
+  },
+  {
+    "key": "shift+k",
+    "command": "workbench.action.decreaseViewHeight" // Decrease the height of the current view
+  },
+
+  {
+    "key": "ctrl+enter",
+    "command": "editor.action.revealDefinitionAside",
+    "when": "editorHasDefinitionProvider && editorTextFocus && !isInEmbeddedEditor"
+  },
+
+  // Coding: Actions related to code editing and navigation
+  {
+    "key": "space c a",
+    "command": "editor.action.codeAction", // Show available code actions (e.g., quick fixes)
+    "when": "vim.mode == 'Normal' && editorTextFocus"
+  },
+  {
+    "key": "shift-k",
+    "command": "editor.action.moveLinesUpAction", // Move the selected lines up
+    "when": "vim.mode == 'VisualLine' && editorTextFocus"
+  },
+  {
+    "key": "shift-j",
+    "command": "editor.action.moveLinesDownAction", // Move the selected lines down
+    "when": "vim.mode == 'VisualLine' && editorTextFocus"
+  },
+  {
+    "key": "shift-k",
+    "command": "editor.action.showHover", // Show hover information (e.g., type info)
+    "when": "vim.mode == 'Normal' && editorTextFocus"
+  },
+  {
+    "key": "space c r",
+    "command": "editor.action.rename", // Rename a symbol
+    "when": "vim.mode == 'Normal' && editorTextFocus"
+  },
+  {
+    "key": "space c s",
+    "command": "workbench.action.gotoSymbol", // Go to a symbol in the current file
+    "when": "vim.mode == 'Normal' && editorTextFocus"
+  },
+  {
+    "key": "space b d",
+    "command": "workbench.action.closeActiveEditor", // Close the active editor
+    "when": "(vim.mode == 'Normal' && editorTextFocus) || !inputFocus"
+  },
+  {
+    "key": "space b o",
+    "command": "workbench.action.closeOtherEditors", // Close all other editors except the current one
+    "when": "(vim.mode == 'Normal' && editorTextFocus) || !inputFocus"
+  },
+  {
+    "key": "space space",
+    "command": "workbench.action.quickOpen", // Open the quick open menu
+    "when": "vim.mode == 'Normal' && (editorTextFocus || !inputFocus)"
+  },
+  {
+    "key": "space g d",
+    "command": "editor.action.revealDefinition", // Go to the definition of a symbol
+    "when": "vim.mode == 'Normal' && editorTextFocus"
+  },
+  {
+    "key": "space g r",
+    "command": "editor.action.goToReferences", // Show references to a symbol
+    "when": "vim.mode == 'Normal' && editorTextFocus"
+  },
+  {
+    "key": "space g i",
+    "command": "editor.action.goToImplementation", // Go to the implementation of a symbol
+    "when": "vim.mode == 'Normal' && editorTextFocus"
+  },
+  {
+    "key": "space s g",
+    "command": "workbench.action.findInFiles", // Search for text in files
+    "when": "vim.mode == 'Normal' && (editorTextFocus || !inputFocus)"
+  },
+  {
+    "key": "space g g",
+    "command": "runCommands", // Open the source control view and focus it
+    "when": "vim.mode == 'Normal' && (editorTextFocus || !inputFocus)",
+    "args": {
+      "commands": ["workbench.view.scm", "workbench.scm.focus"]
+    }
+  },
+  {
+    "key": "ctrl-n",
+    "command": "editor.action.addSelectionToNextFindMatch", // Add the next occurrence of the selected text to the selection
+    "when": "(vim.mode == 'Normal' || vim.mode == 'Visual') && (editorTextFocus || !inputFocus)"
+  },
+
+  // File Explorer: Actions for managing files and folders
+  {
+    "key": "r",
+    "command": "renameFile", // Rename a file or folder
+    "when": "filesExplorerFocus && foldersViewVisible && !explorerResourceIsRoot && !explorerResourceReadonly && !inputFocus"
+  },
+  {
+    "key": "c",
+    "command": "filesExplorer.copy", // Copy a file or folder
+    "when": "filesExplorerFocus && foldersViewVisible && !explorerResourceIsRoot && !explorerResourceReadonly && !inputFocus"
+  },
+  {
+    "key": "p",
+    "command": "filesExplorer.paste", // Paste a file or folder
+    "when": "filesExplorerFocus && foldersViewVisible && !explorerResourceIsRoot && !explorerResourceReadonly && !inputFocus"
+  },
+  {
+    "key": "x",
+    "command": "filesExplorer.cut", // Cut a file or folder
+    "when": "filesExplorerFocus && foldersViewVisible && !explorerResourceIsRoot && !explorerResourceReadonly && !inputFocus"
+  },
+  {
+    "key": "d",
+    "command": "deleteFile", // Delete a file or folder
+    "when": "filesExplorerFocus && foldersViewVisible && !explorerResourceIsRoot && !explorerResourceReadonly && !inputFocus"
+  },
+  {
+    "key": "a",
+    "command": "explorer.newFile", // Create a new file
+    "when": "filesExplorerFocus && foldersViewVisible && !explorerResourceIsRoot && !explorerResourceReadonly && !inputFocus"
+  },
+  {
+    "key": "s",
+    "command": "explorer.openToSide", // Open a file in a new editor to the side
+    "when": "filesExplorerFocus && foldersViewVisible && !explorerResourceIsRoot && !explorerResourceReadonly && !inputFocus"
+  },
+  {
+    "key": "shift-s",
+    "command": "runCommands", // Split the editor, open the file, and close other editors
+    "when": "filesExplorerFocus && foldersViewVisible && !explorerResourceIsRoot && !explorerResourceReadonly && !inputFocus",
+    "args": {
+      "commands": [
+        "workbench.action.splitEditorDown",
+        "explorer.openAndPassFocus",
+        "workbench.action.closeOtherEditors"
+      ]
+    }
+  },
+  {
+    "key": "enter",
+    "command": "explorer.openAndPassFocus", // Open a file and pass focus to the editor
+    "when": "filesExplorerFocus && foldersViewVisible && !explorerResourceIsRoot && !explorerResourceIsFolder && !inputFocus"
+  },
+  {
+    "key": "enter",
+    "command": "list.toggleExpand", // Expand or collapse a folder
+    "when": "filesExplorerFocus && foldersViewVisible && !explorerResourceIsRoot && explorerResourceIsFolder && !inputFocus"
+  },
+
+  // Debug: Actions for debugging
+  {
+    "key": "space d a",
+    "command": "workbench.action.debug.selectandstart", // Start debugging with a selected configuration
+    "when": "vim.mode == 'Normal' && (editorTextFocus || !inputFocus) && debuggersAvailable"
+  },
+  {
+    "key": "space d t",
+    "command": "workbench.action.debug.stop", // Stop the debugger
+    "when": "vim.mode == 'Normal' && editorTextFocus && inDebugMode && !focusedSessionIsAttached"
+  },
+  {
+    "key": "space d o",
+    "command": "workbench.action.debug.stepOver", // Step over the next line in debugging
+    "when": "vim.mode == 'Normal' && (editorTextFocus || !inputFocus) && inDebugMode && debugState == 'stopped'"
+  },
+  {
+    "key": "space d b",
+    "command": "editor.debug.action.toggleBreakpoint", // Toggle a breakpoint on the current line
+    "when": "vim.mode == 'Normal' && editorTextFocus"
+  },
+  {
+    "key": "space d e",
+    "command": "editor.debug.action.showDebugHover", // Show debug hover information
+    "when": "vim.mode == 'Normal' && editorTextFocus && inDebugMode && debugState == 'stopped'"
+  },
+  {
+    "key": "space d c",
+    "command": "workbench.action.debug.continue", // Continue execution in debugging
+    "when": "vim.mode == 'Normal' && (editorTextFocus || !inputFocus) && inDebugMode && debugState == 'stopped'"
+  },
+  {
+    "key": "ctrl+w",
+    "command": "-workbench.action.terminal.killEditor", // Remove the default terminal kill editor shortcut
+    "when": "terminalEditorFocus && terminalFocus && terminalHasBeenCreated || terminalEditorFocus && terminalFocus && terminalProcessSupported"
+  },
+  {
+    "key": "ctrl+w",
+    "command": "-workbench.action.closeActiveEditor" // Remove the default close active editor shortcut
+  }
+]

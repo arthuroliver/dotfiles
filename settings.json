@@ -1,0 +1,7 @@
+{
+    "extensions.experimental.affinity": {
+        "asvetliakov.vscode-neovim": 1
+    },
+    "workbench.colorTheme": "Omni Dracula Theme Contrast",
+    "vim.useSystemClipboard": true
+}
