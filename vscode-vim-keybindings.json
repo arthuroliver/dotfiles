@@ -61,16 +61,18 @@
   },
   {
     "key": "tab",
-    "command": "workbench.action.nextEditorInGroup" // Switch to the next editor in the current group
+    "command": "workbench.action.nextEditorInGroup", // Switch to the next editor in the current group
+    "when": "vim.mode != 'Insert'" // Only when NOT in insert mode
   },
   {
     "key": "shift+tab",
-    "command": "workbench.action.previousEditorInGroup" // Switch to the previous editor in the current group
+    "command": "workbench.action.previousEditorInGroup", // Switch to the previous editor in the current group
+    "when": "vim.mode != 'Insert'" // Only when NOT in insert mode
   },
   {
     "key": "space x",
     "command": "workbench.action.closeActiveEditor", // Close the currently active editor
-    "when": "editorTextFocus"
+    "when": "vim.mode == 'Normal' && (editorTextFocus || !inputFocus)"
   },
   {
     "key": "ctrl+a",
@@ -105,7 +107,7 @@
   },
   {
     "key": "space e",
-    "when": "vim.mode == 'Normal' && editorTextFocus && foldersViewVisible",
+    "when": "vim.mode == 'Normal' && editorTextFocus && foldersViewVisible && !inputFocus",
     "command": "workbench.action.toggleSidebarVisibility" // Toggle the visibility of the sidebar
   },
   {
@@ -135,7 +137,7 @@
   {
     "key": "space c a",
     "command": "editor.action.codeAction", // Show available code actions (e.g., quick fixes)
-    "when": "vim.mode == 'Normal' && editorTextFocus"
+    "when": "vim.mode == 'Normal' && editorTextFocus && !inputFocus"
   },
   {
     "key": "shift-k",
@@ -155,12 +157,12 @@
   {
     "key": "space c r",
     "command": "editor.action.rename", // Rename a symbol
-    "when": "vim.mode == 'Normal' && editorTextFocus"
+    "when": "vim.mode == 'Normal' && editorTextFocus && !inputFocus"
   },
   {
     "key": "space c s",
     "command": "workbench.action.gotoSymbol", // Go to a symbol in the current file
-    "when": "vim.mode == 'Normal' && editorTextFocus"
+    "when": "vim.mode == 'Normal' && editorTextFocus && !inputFocus"
   },
   {
     "key": "space b d",
@@ -180,17 +182,17 @@
   {
     "key": "space g d",
     "command": "editor.action.revealDefinition", // Go to the definition of a symbol
-    "when": "vim.mode == 'Normal' && editorTextFocus"
+    "when": "vim.mode == 'Normal' && editorTextFocus && !inputFocus"
   },
   {
     "key": "space g r",
     "command": "editor.action.goToReferences", // Show references to a symbol
-    "when": "vim.mode == 'Normal' && editorTextFocus"
+    "when": "vim.mode == 'Normal' && editorTextFocus && !inputFocus"
   },
   {
     "key": "space g i",
     "command": "editor.action.goToImplementation", // Go to the implementation of a symbol
-    "when": "vim.mode == 'Normal' && editorTextFocus"
+    "when": "vim.mode == 'Normal' && editorTextFocus && !inputFocus"
   },
   {
     "key": "space s g",
